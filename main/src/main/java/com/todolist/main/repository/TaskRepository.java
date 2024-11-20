@@ -11,6 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+/**
+ * Repository layer to handle all SQL queries
+ * @author Noah Rouse
+ * @email noahrouse36@gmail.com
+ */
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
    public List<Task> findAll ();
