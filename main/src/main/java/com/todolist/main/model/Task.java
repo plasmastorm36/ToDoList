@@ -47,7 +47,7 @@ public class Task {
       this.priority = priority;
       this.dueDate = dueDate;
       this.isCompleted = false;
-      created = LocalDate.now();
+      this.created = LocalDate.now();
       lastUpdated = created;
    }
 
