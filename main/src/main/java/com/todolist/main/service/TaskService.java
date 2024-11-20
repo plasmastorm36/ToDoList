@@ -26,5 +26,4 @@ public class TaskService {
    public List<Task> findByCompletion (final boolean isCompleted) {
       return repos.findByCompletion(isCompleted);
    }
-
 }
