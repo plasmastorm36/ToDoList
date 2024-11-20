@@ -22,7 +22,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
    public Optional<Task> findById (Long id);
 
-   @Query("SELECT t FROM Tasks WHERE t.isCompleted = :isCompleted")
+   @Query("SELECT t FROM Tasks WHERE t.Completed = :isCompleted")
    public List<Task> findByCompletion (boolean isCompleted);
 
    @Query("SELECT t FROM Tasks WHERE t.dueDate = :dueDate")
