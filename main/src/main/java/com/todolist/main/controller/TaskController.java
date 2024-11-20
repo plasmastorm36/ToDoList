@@ -41,6 +41,15 @@ public class TaskController {
       return service.findByCompletion(false);
    }
 
+   @GetMapping("/completed")
+   /**
+    * 
+    * @return all completed tasks
+    */
+   public List<Task> getCompletedTasks () {
+      return service.findByCompletion(true);
+   }
+
    @PostMapping("/add")
    /**
     * Adds a task to the database
@@ -63,6 +72,7 @@ public class TaskController {
       try {
          final Task task = service.findById(id);
          task.setIsCompleted(isCompleted);
+         service.save(task);
          return ResponseEntity.ok(String.format("Task %d completion updated to %b", id,
                isCompleted));
       } catch (final Exception e) {
