@@ -29,7 +29,7 @@ public class TaskService {
     * @return returns a list of all task that follow the completion status
     */
    public List<Task> findByCompletion (final boolean isCompleted) {
-      return repos.findByCompletion(isCompleted);
+      return repos.findByIsCompleted(isCompleted);
    }
 
    /**
