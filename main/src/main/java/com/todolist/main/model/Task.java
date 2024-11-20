@@ -79,6 +79,9 @@ public class Task {
       return this.lastUpdated;
    }
 
+   public void setCreated () {
+      this.created = LocalDate.now();
+   }
    public void setDescription (final String description) {
       this.description = description;
       lastUpdated = LocalDate.now();
