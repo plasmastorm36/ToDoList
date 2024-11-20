@@ -5,6 +5,7 @@ import com.todolist.main.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 /**
@@ -18,6 +19,10 @@ public class TaskService {
       this.repos = taskRepos;
    }
 
+   public List<Task> findAll () {
+      return repos.findAll();
+   }
+
    /**
     * 
     * @param isCompleted
@@ -25,5 +30,27 @@ public class TaskService {
     */
    public List<Task> findByCompletion (final boolean isCompleted) {
       return repos.findByCompletion(isCompleted);
+   }
+
+   /**
+    * finds a task by its id number
+    * @param id
+    * @return task found
+    * @throws Exception when no task is found
+    */
+   public Task findById (final Long id) throws Exception {
+      final Optional<Task> task = repos.findById(id);
+      if (task.isPresent()) {
+         return task.get();
+      }
+      throw new Exception (String.format("Task %d not found", id));
+   }
+
+   /**
+    * save method to add or change a task
+    * @param task
+    */
+   public void save (final Task task) {
+      repos.save(task);
    }
 }
