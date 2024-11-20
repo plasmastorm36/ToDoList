@@ -47,6 +47,7 @@ public class TaskController {
     * @param task
     */
    public ResponseEntity<Task> addTask (@RequestBody final Task task) {
+      task.setCreated();
       service.save(task);
       return ResponseEntity.status(HttpStatus.CREATED).body(task);
    }
